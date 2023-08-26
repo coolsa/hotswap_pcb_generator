@@ -15,7 +15,7 @@ switch_type = "mx";  // [mx, choc]
 // Switch orientation (based on LED location)
 switch_orientation = "south";  // [north, south]
 // Whether to use experimental diode leg contact
-use_folded_contact = false;
+use_folded_contact = true;
 
 
 /* Stabilizer Parameters */
@@ -39,11 +39,11 @@ case_base_height = 2;
 // Fit tolerance between interlocking case parts
 case_fit_tolerance = 0.2;
 // Tenting angle around x-axis
-tent_angle_x = 5;
+tent_angle_x = 3;
 // Tenting angle around y-axis (i.e. typing angle)
-tent_angle_y = 5;
+tent_angle_y = 0;
 // Point around which keyboard is tented
-tent_point = [0,4.125*19.05];
+tent_point = [0,8.125*19.05];
 
 
 /* Plate Parameters */
@@ -69,14 +69,14 @@ pcb_backplate_spacing = 4;
 
 /* MCU Parameters (Default values for Pro Micro) */
 mcu_type = "bare";  // [bare, socketed]
-mcu_width = 18;
-mcu_length = 33;
+mcu_width = 18.5;
+mcu_length = 33.3;
 mcu_height = 4.25;  // Distance to top of PCB
 mcu_row_spacing = 15.24;
 mcu_row_count = 2;  // Unused
 mcu_pin_count = 24;
 mcu_pin_pitch = 2.54;
-mcu_pin_offset = 0;  // Offset from the rear of the PCB
+mcu_pin_offset = 0.3;  // Offset from the rear of the PCB
 mcu_connector_width = 13;  // Width of the connector (for plate cutout)
 mcu_connector_length = 4;  // Distance the connector extends onto the MCU (for plate cutout)
 mcu_connector_height = 8;  // Height of the plug housing
@@ -90,33 +90,33 @@ grid_spacing = 1.6;
 
 
 /* TRRS Socket Parameters */
-trrs_type = "pj320a";
-trrs_width = 6;
-trrs_length = 12.1;
-trrs_height = 5;
-trrs_flange_length = 2;
-trrs_flange_diameter = 5;
-trrs_pin_spacing = 4.4;
-trrs_nub_diameter = 1.5;  // Little locating nubs on the bottom of the socket
-trrs_nub_height = 1;
-trrs_nub_spacing = 7;
-trrs_nub_offset = 1.5;  // Distance from the front of the socket (not including flange)
-trrs_plug_width = 10;  // Width of a plug for plate clearance
-
-
-/* TRS Socket Parameters */
-//trrs_type = "pj324m";
-//trrs_width = 11.55;
-//trrs_length = 14.25;
-//trrs_height = 6.3;
-//trrs_flange_length = 3.5;
-//trrs_flange_diameter = 6;
+//trrs_type = "pj320a";
+//trrs_width = 6;
+//trrs_length = 12.1;
+//trrs_height = 5;
+//trrs_flange_length = 2;
+//trrs_flange_diameter = 5;
 //trrs_pin_spacing = 4.4;
 //trrs_nub_diameter = 1.5;  // Little locating nubs on the bottom of the socket
 //trrs_nub_height = 1;
 //trrs_nub_spacing = 7;
 //trrs_nub_offset = 1.5;  // Distance from the front of the socket (not including flange)
 //trrs_plug_width = 10;  // Width of a plug for plate clearance
+
+
+/* TRS Socket Parameters */
+trrs_type = "pj324m";
+trrs_width = 11.55;
+trrs_length = 14.25;
+trrs_height = 6.3;
+trrs_flange_length = 3.5;
+trrs_flange_diameter = 6;
+trrs_pin_spacing = 4.4;
+trrs_nub_diameter = 1.5;  // Little locating nubs on the bottom of the socket
+trrs_nub_height = 1;
+trrs_nub_spacing = 7;
+trrs_nub_offset = 1.5;  // Distance from the front of the socket (not including flange)
+trrs_plug_width = 10;  // Width of a plug for plate clearance
 
 
 /* Via Parameters */
