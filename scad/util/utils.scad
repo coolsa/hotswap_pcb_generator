@@ -62,7 +62,9 @@ switch_rotation =
         ? 180
         : assert(false, "switch_orientation is invalid");
 
+/*
 
+*/
 function set_defaults(layout, extra_data_default=[]) = [
     for (item = layout)
         let(
@@ -85,11 +87,16 @@ function set_defaults(layout, extra_data_default=[]) = [
         ]
 ];
 
+/*
+
+*/
 function invert_borders(borders, invert=true) =
     invert
         ? [borders[0], borders[1], borders[3], borders[2]]
         : borders;
-
+/*
+    Function takes all locations of items in a layout and flips them.
+*/
 function invert_layout(layout) = [
     for (item = layout)
         let(
@@ -108,6 +115,9 @@ function invert_layout(layout) = [
         ]
 ];
 
+/*
+    For all in a layout, position the item and run the child command.
+*/
 module layout_pattern(layout) {
     union() {
         for (item = layout) {
@@ -130,11 +140,17 @@ module layout_pattern(layout) {
     }
 }
 
+/*
+
+*/
 module border(base_size, borders, thickness, h_unit=1, v_unit=1) {
     linear_extrude(thickness, center=true)
         border_footprint(base_size, borders, h_unit, v_unit);
 }
 
+/*
+
+*/
 module border_footprint(base_size, borders, h_unit=1, v_unit=1) {
     translate([
         h_unit/2 * (borders[3] - borders[2]),

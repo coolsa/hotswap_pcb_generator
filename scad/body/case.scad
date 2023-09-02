@@ -70,7 +70,7 @@ module case(switch_layout, mcu_layout, trrs_layout, plate_layout, stab_layout, s
                 switch_plate_cutout();
             }
             layout_pattern(mcu_layout) {
-                mcu_case_cutout();
+                #mcu_case_cutout();
             }
             layout_pattern(trrs_layout) {
                 trrs_case_cutout();

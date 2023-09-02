@@ -1,4 +1,4 @@
-include <parameters.scad>
+include <../../parameters.scad>
 
 module mx_improved_diode_template() {
     difference() {

@@ -15,4 +15,3 @@ include <parameters.scad>
 6_25u_offset = [6.25, 3.25*unit, 2*unit, 0.625*unit];  // [61.9125, 38.1], 5.25u total spacing
 6_25u_narrow = [6.25, 40, 40];  // 80mm total spacing
 7u = [7, 3*unit, 3*unit];  // [57.15, 57.15]
-

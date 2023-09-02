@@ -1,6 +1,7 @@
-include <parameters.scad>
-include <utils.scad>
+include <../parameters.scad>
+include <../utils.scad>
 
+// TODO: Make the radius of both circles controlled via the call.
 module standoff(height, solid=false) {
     difference() {
         translate([h_unit/2,-v_unit/2,0]) 

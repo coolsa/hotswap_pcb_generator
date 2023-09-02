@@ -1,5 +1,5 @@
-include <parameters.scad>
-include <utils.scad>
+include <../.../parameters.scad>
+include <../../utils.scad>
 
 use <grid_patterns.scad>
 
@@ -228,3 +228,4 @@ module mcu_case_cutout() {
 echo(str("MCU footprint length is ", mcu_v_unit_size, " units."));
 echo(str("MCU footprint width is ", mcu_h_unit_size, " units."));
 mcu();
+#mcu_case_cutout();

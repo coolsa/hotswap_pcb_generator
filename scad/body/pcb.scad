@@ -15,7 +15,7 @@ module pcb(switch_layout, mcu_layout, trrs_layout, stab_layout, standoff_layout,
                 switch_socket_base($borders);
             }
             layout_pattern(mcu_layout) {
-                mcu($borders);
+                #mcu($borders);
             }
             layout_pattern(trrs_layout) {
                 trrs($borders);
