@@ -1,5 +1,4 @@
-include <../../parameters.scad>
-include <../../utils.scad>
+include <settings.scad>
 
 
 module switch_socket(borders=[1,1,1,1], rotate_column=false) {

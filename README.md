@@ -17,4 +17,4 @@ General TODOS:
 
 	Create jsonschemas for each of these, for better modular generation.
 
-	Refactor the generator code to be able to take a list of parameters and generate the PCB with minimal polishing.
+	Refactor the generator code to be able to take a list of parameters and generate the PCB with minimal polishing.l

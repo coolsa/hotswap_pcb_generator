@@ -1,9 +1,9 @@
 include <../.../parameters.scad>
-include <../../utils.scad>
+include <../../util/utils.scad>
 
 use <grid_patterns.scad>
 
-module mcu(borders=[0,0,0,0]) {
+    module mcu(borders=[0,0,0,0]) {
     translate([
         h_unit/2,
         -mcu_socket_length+2,

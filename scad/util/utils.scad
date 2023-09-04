@@ -1,7 +1,7 @@
-include <parameters.scad>
-include <default_layout.scad>
-include <layout.scad>
-include <stabilizer_spacing.scad>
+include <../parameters.scad>
+include <../default_layout.scad>
+include <../layout.scad>
+include <../part/cherry_mx/stabilizer_spacing.scad>
 
 
 // Determine whether to invert the layout
