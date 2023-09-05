@@ -1,9 +1,84 @@
-include <../.../parameters.scad>
-include <../../util/utils.scad>
+use <../../util/grid_patterns.scad>
 
-use <grid_patterns.scad>
+include <settings.scad>
 
-    module mcu(borders=[0,0,0,0]) {
+module promicro() {
+    $wall_thickness = 1;
+    difference() {
+        promicro_pcb();
+        *#promicro_pcb_cutout();
+    }
+}
+
+// Starting with the 
+module promicro_pcb() {
+    // Base
+    cube([$promicro_width+$wall_thickness*2,$promicro_length+$wall_thickness*2,$promicro_pcb_thickness+$wall_thickness*2]); 
+    
+    // Retention Tabs
+    
+    !union() {
+        cube([($promicro_width-$promicro_connector_width)/2,$wall_thickness,$wall_thickness+$promicro_pcb_thickness+1]);
+        
+        translate([0,0,$wall_thickness+$promicro_pcb_thickness+1/2]) rotate([0,90,0])
+            cylinder(h=($promicro_width-$promicro_connector_width)/2,d=1);
+    }
+//    for (x = [0,2]) {
+//        translate([x*($promicro_width+$promicro_connector_width)/4,0,($wall_thickness+$promicro_pcb_thickness+1)/2]) {
+//            for (y = [0,$promicro_length+2]) {
+//                translate([0,y,0])
+//                    cube(
+//                        [($promicro_width-$promicro_connector_width)/2,$wall_thickness,$wall_thickness+$promicro_pcb_thickness+1],
+//                        center=true
+//                    );
+//            }
+//        }
+//        translate([x*($promicro_width+$promicro_connector_width)/4,0,$wall_thickness+$promicro_pcb_thickness+0.5]) {
+//            rotate([0,90,0]) {
+//                for (y = [0,$promicro_length]) {
+//                translate([0,y,0]) 
+//                    cylinder(h=($promicro_width-$promicro_connector_width)/2,d=1,center=true);
+//                }
+//            }
+//        }
+}
+
+module promicro_pcb_cutout() {
+    // Wire cutouts
+//        for (row = [-1,1]) {
+//            for (pin = [0:mcu_pin_count/2-1]) {
+//                translate([
+//                    row*(mcu_row_spacing/2-1),
+//                    (pin+0.5)*mcu_pin_pitch+mcu_pin_offset,
+//                    pcb_thickness-wire_diameter/3
+//                ]) rotate([0,row*90,0])
+//                    cylinder(h=1000,d=wire_diameter);
+//            }
+//        }
+//        // MCU cutout
+//        translate([-mcu_width/2,0,pcb_thickness]) 
+//            cube([mcu_width, mcu_length,mcu_pcb_thickness+1]);
+//        // Side cutout
+//        translate([-(mcu_socket_width+2)/2,mcu_pin_offset,pcb_thickness]) 
+//            cube([mcu_socket_width+2,mcu_pin_count/2*mcu_pin_pitch,mcu_pcb_thickness+1]);
+//        // USB cutout
+//        translate([-mcu_connector_width/2,-3,pcb_thickness]) 
+//            cube([mcu_connector_width,mcu_socket_length+2,mcu_pcb_thickness+1]);
+//        translate([-mcu_connector_width/2,mcu_length-mcu_connector_length,pcb_thickness-2]) 
+//            cube([mcu_connector_width,mcu_connector_length+3,pcb_thickness+1]);
+//        
+//        // Relief to let you pop the MCU out
+//        translate([0,0,pcb_thickness-1])
+//            cylinder(h=mcu_pcb_thickness+2,d=mcu_connector_width);
+//        translate([-mcu_connector_width/2,-3,pcb_thickness-1])
+//            cube([mcu_connector_width,3,mcu_pcb_thickness+2]);
+//    }
+}
+module promicro_case() {}
+module promicro_case_cutout() {}
+
+
+module mcu(borders=[0,0,0,0]) {
     translate([
         h_unit/2,
         -mcu_socket_length+2,
@@ -225,7 +300,9 @@ module mcu_case_cutout() {
     }
 }
 
-echo(str("MCU footprint length is ", mcu_v_unit_size, " units."));
-echo(str("MCU footprint width is ", mcu_h_unit_size, " units."));
-mcu();
-#mcu_case_cutout();
+//echo(str("MCU footprint length is ", mcu_v_unit_size, " units."));
+//echo(str("MCU footprint width is ", mcu_h_unit_size, " units."));
+//mcu();
+//#mcu_case_cutout();
+
+promicro();
