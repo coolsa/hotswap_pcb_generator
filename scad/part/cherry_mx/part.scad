@@ -4,10 +4,25 @@ include <settings.scad>
     This is the standard view of a cherry key.
 */
 module cherry_mx() {
-    
+    difference () {
+        cherry_mx_pcb();
+        #cherry_mx_pcb_cutout();
+    }
 }
 
-module cherry_mx_pcb() {}
+module cherry_mx_pcb() {
+    translate([h_unit/2,-v_unit/2,0]) union() {
+        cube([socket_size, socket_size, pcb_thickness], center=true);
+        translate([0,0,border_z_offset * 1])
+            border(
+                [socket_size,socket_size], 
+                borders, 
+                pcb_thickness-2, 
+                h_border_width, 
+                v_border_width
+            );
+    }
+}
 
 module cherry_mx_pcb_cutout() {}
 
@@ -241,5 +256,6 @@ module switch_plate_cutout(thickness=plate_thickness) {
         switch_plate_cutout_footprint();
 }
 
-switch_socket();
-#switch_plate_cutout_footprint();
+cherry_mx();
+//switch_socket();
+//#switch_plate_cutout_footprint();
