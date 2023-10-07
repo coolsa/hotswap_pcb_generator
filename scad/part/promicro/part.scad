@@ -7,7 +7,7 @@ module promicro() {
         promicro_pcb();
         #promicro_pcb_cutout();
     }
-    difference() {
+    %difference() {
         promicro_case();
         #promicro_case_cutout();
     }

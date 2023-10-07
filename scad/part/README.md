@@ -4,8 +4,11 @@ This directory is for components, things that will have wires running to or from
 
 Some example components include the `pj320a TRRS` socket, or a Cherry key.
 
-Directories will have the `.scad` file for the generated part, a `.jsonschema` for all available configurations controlled through the `$extradata`, and occasionally a `README.md`.
+Directories will have the `part.scad` file for the generated part, `settings.scad` for all controlled functions, a `.jsonschema` for all available configurations controlled through the `$extradata` (UNSURE, PERHAPS NOT), and occasionally a `README.md` for complicated files.
 
+Parts follow this standard:
+	The folder is named `<part>`.
+	`<part>_pcb()` `<part>_pcb_cutout()` `<part>_case()` `<part>_case_cutout()` `<part>_dimensions()`
 TODO: Define the standard for a jsonschema, perhaps using some type of example part? Or a how-to...
 
 TODO: Also, lets have a good think about how some components are meant to poke through the shell! The cutout of a component...
@@ -36,5 +39,23 @@ TODO: Move all parts to a new generation format, which will be like follows:
 
 TODO: find a way to standardize the switches and their units... Not sure how to go about doing that.
 
+		Some thoughts on this: I could add a function that calls the returns the `[x,y,z] dimensions of the part, as offsets from the origin.
+			This would enable some automatic spacing of things, so that way switches and their plate sizes and the case could be generated.
+			As the switch dimensions are less important now, this would be useful, I think... Over complicated? We shall see!
+
 TODO: Make parts not dependent on the pcb height or plate stuffs. Or see if this is actually needed...
 				Could make it, if needed, defined in the jsonschema call format, so that way the function calls can have those as inputs.
+
+TODO: Parts should have an option to add more material to the base plate, perhaps a nested `[[-x,+x],[-y,+y]]` type thing, with an extra cube?
+
+TODO: Working on the cherry key made me realize some things: theres a space between the bottom of the pcb and the top.
+				This is is important for somethings, i.e. the gap between the faceplate and the pcb, which has some spacers for the screw standoffs...
+				This is important to keeping the keys in place and such... how can it work, with more dynamic parts?
+				Would I need a cutout, or special functions for the parts, that can output the maximum height above and below the pcb thats needed?
+				Or should the case and case cutout do this? This is a bit tough, but I'm sure the details can be hammered out without any issue.
+				How would the border of the case be done? Especially in a 3d pcb, which would need a lot of oversight.
+				Since each part is a specific function that can be called in isolation, with special `$variables` passed, these could be used in an external project.
+				I want to be able to bring in the old keyboards into this project though, so that way there's a larger quantity of reference materials.
+				So everything should be as backwards compatible as possible, which is so much added difficulty...
+				But this feels like it should be possible, to implement, and to do well enough that most things could be defined in some json file and converted to SCAD.
+				Let's try and figure what the heirarchy would look like...

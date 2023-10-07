@@ -6,50 +6,38 @@
 $fn=12;
 $wall_thickness = 2;
 $wire_diameter = 2.15;
-
 /* Switch Parameters */
-// Switch type
-switch_type = "mx";  // [mx, choc]
 // Switch orientation (based on LED location)
-switch_orientation = "south";  // [north, south]
+$cherry_switch_orientation = "south";  // [north, south]
 // Whether to use experimental diode leg contact
-use_folded_contact = true; 
+$cherry_increased_contact = true; 
 /* Advanced Parameters (related to switch size) */
 // Switch spacing distance
-unit = 19.05;
-// Horizontal unit size (18mm for choc keycaps)
-h_unit = unit;
-// Vertical unit size (17mm for choc keycaps)
-v_unit = unit;
+$cherry_mx_units = [19.05,19.05];
+// Cherry Central Pin Radius
+$cherry_center_pin_radius = 2.1;
+// Cherry Side Pin Radius
+$cherry_side_pin_radius = 1.05;
 // Spacing of grid for MX pins
-grid = 1.27;
+$cherry_pin_grid_spacing = 1.27;
+// Cherry Conductor Pin Radius
+$cherry_conductor_pin_radius = 1;
+// Cherry Diode Pin Offset
+$cherry_diode_pin_offset = [-.625,-0.75,0];
 // Size of socket body
-socket_size =
-    switch_type == "mx"
-    ? 14
-    : switch_type == "choc"
-        ? 15
-        : assert(false, "switch_type is invalid");
-// Depth of the socket holes
-socket_depth = 3.5;
+$cherry_mx_socket_size = 14;
+// Depth of the socket holes and cherry pins
+$cherry_mx_socket_depth = 3.5;
 // Thickness of the plate
-plate_thickness =
-    switch_type == "mx"
-    ? 1.5
-    : switch_type == "choc"
-        ? 1.3
-        : assert(false, "switch_type is invalid");
+$cherry_mx_plate_thickness = 1.5;
 // Size of the plate cutout
-plate_cutout_size =
-    switch_type == "mx"
-    ? 14
-    : switch_type == "choc"
-        ? 13.8
-        : assert(false, "switch_type is invalid");
+$cherry_mx_plate_cutout_size = 14;
 // Spacing between the top of the PCB and top of the plate
-pcb_plate_spacing =
-    switch_type == "mx"
-    ? 5
-    : switch_type == "choc"
-        ? 2.2
-        : assert(false, "switch_type is invalid");
+$cherry_mx_pcb_plate_spacing = 5;
+// Thickness of the diode wire contacts
+$cherry_diode_wire_diameter = 0.25;
+$cherry_diode_length = 2;
+$cherry_diode_diameter = 1;
+$cherry_rotate_column = false;
+$cherry_row_cutout_length = $cherry_mx_socket_size;
+$cherry_column_cutout_length = $cherry_rotate_column ? $cherry_mx_units[0] : $cherry_mx_units[1];
